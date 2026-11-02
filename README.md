@@ -22,17 +22,34 @@ python3 -m http.server 8000
 
 Trang tự chứa CSS/JS/ảnh và font Inter cục bộ; chạy được hoàn toàn offline.
 
+## Cài như app (PWA)
+
+Trang đã có manifest + service worker. Trên HTTPS (GitHub Pages):
+
+- **iPhone/iPad:** mở bằng Safari → nút Share → **Add to Home Screen**
+- **Android:** mở bằng Chrome → menu ⋮ → **Install app** / **Add to Home screen**
+
+Mở icon trên màn hình chính sẽ chạy dạng **standalone** — không còn thanh địa chỉ/nút Safari; thanh trạng thái của điện thoại vẫn hiển thị như app thật. Trang cũng được cache để mở offline.
+
+Lưu ý: mở `file://` trên máy không cài PWA được (service worker cần https hoặc localhost).
+
 ## Cấu trúc
 
 ```
-index.html          # khung trang
+index.html          # khung trang + meta PWA
 styles.css          # giao diện responsive, header/tab bar cố định
-app.js              # trạng thái cuộn header, phản hồi tab
+app.js              # trạng thái cuộn header, phản hồi tab, đăng ký service worker
+manifest.json       # cấu hình PWA (tên, icon, standalone)
+sw.js               # service worker (cache, mở offline)
 assets/
   qr.png            # QR cắt nguyên từ video
   watermark.png     # watermark bảo mật cắt nguyên từ video
   db-logo.png       # logo DB cắt từ video
   deutschlandtarif.png
+  icon-192.png      # icon PWA
+  icon-512.png
+  icon-maskable-512.png
+  icon-180.png      # apple-touch-icon
   fonts/inter-latin.woff2
 ui.mp4              # video gốc (giữ trên máy, không đưa vào repo)
 ```
