@@ -25,8 +25,8 @@
   --wm-max: 440px;
   --tab-h: 65px;
 
-  --font: "Inter", -apple-system, BlinkMacSystemFont, "SF Pro Text", "Segoe UI",
-          Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif;
+  --font: -apple-system, BlinkMacSystemFont, "SF Pro Text", "SF Pro Display",
+          "Inter", "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif;
 }
 
 * { box-sizing: border-box; }
@@ -45,6 +45,7 @@ body {
   font-family: var(--font);
   font-size: 16px;
   line-height: 20px;
+  font-size-adjust: 0.52;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   overflow-x: clip;
@@ -169,11 +170,26 @@ button {
 
 .ticket-visual { padding: 8px max(var(--pad), 23px) 0; }
 
+.tarif-track {
+  position: relative;
+  height: 30px;
+  overflow: hidden;
+}
+
 .tarif-logo {
+  position: absolute;
+  top: 0;
+  left: 0;
   width: auto;
   height: 30px;
-  margin: 0 auto;
-  transform: translateX(18px);
+  transform: translateX(0);
+  animation: tarif-drift 2.6s ease-in-out infinite alternate;
+  will-change: transform;
+}
+
+@keyframes tarif-drift {
+  from { transform: translateX(0); }
+  to   { transform: translateX(var(--tarif-travel, 0px)); }
 }
 
 .qr {
@@ -192,7 +208,7 @@ button {
 }
 
 .ticket-body {
-  padding: 19px var(--pad) calc(107px + env(safe-area-inset-bottom, 0px));
+  padding: 19px var(--pad) 93px;
 }
 
 .ticket-body-inner {
@@ -265,7 +281,7 @@ button {
 .tabbar {
   position: fixed;
   left: 50%;
-  bottom: calc(22px + env(safe-area-inset-bottom, 0px));
+  bottom: 8px;
   transform: translateX(-50%);
   z-index: 20;
   display: grid;
@@ -337,6 +353,7 @@ button {
   .ticket-body .conditions-first { margin-bottom: 22px; }
   .ticket-body .ticket-code { margin-top: 9px; }
 
+  .tarif-track { height: 38px; }
   .tarif-logo { height: 38px; }
   .qr { margin-top: 12px; }
 
@@ -380,6 +397,11 @@ button {
   *, *::before, *::after {
     transition-duration: .01ms !important;
     animation-duration: .01ms !important;
+  }
+  .tarif-logo {
+    animation: none !important;
+    left: 50%;
+    transform: translateX(-50%);
   }
 }
 

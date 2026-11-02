@@ -27,3 +27,23 @@ document.querySelectorAll('.tab').forEach((tab) => {
     );
   });
 });
+
+/* ---------- Deutschland-Tarif logo drift ---------- */
+
+const tarifTrack = document.querySelector('.tarif-track');
+const tarifLogo = document.querySelector('.tarif-logo');
+
+function layoutTarifLogo() {
+  if (!tarifTrack || !tarifLogo) return;
+  const travel = Math.max(0, tarifTrack.clientWidth - tarifLogo.offsetWidth);
+  tarifTrack.style.setProperty('--tarif-travel', `${travel}px`);
+}
+
+window.addEventListener('resize', layoutTarifLogo, { passive: true });
+window.addEventListener('load', layoutTarifLogo);
+
+if (tarifTrack && typeof ResizeObserver !== 'undefined') {
+  new ResizeObserver(layoutTarifLogo).observe(tarifTrack);
+}
+
+layoutTarifLogo();
