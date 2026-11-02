@@ -88,11 +88,38 @@ button {
   position: fixed;
   inset: 0 0 auto;
   z-index: 30;
-  background: linear-gradient(to bottom, rgba(255, 255, 255, .35), rgba(255, 255, 255, 0));
+  background: linear-gradient(to bottom, rgba(255, 255, 255, .30), rgba(255, 255, 255, 0));
   box-shadow: none;
 }
 
-.navbar { height: var(--nav-h); }
+.topbar-blur {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+.topbar-blur-strong {
+  -webkit-backdrop-filter: blur(6px);
+  backdrop-filter: blur(6px);
+  -webkit-mask-image: linear-gradient(to bottom, #000 0%, #000 8%, transparent 42%);
+  mask-image: linear-gradient(to bottom, #000 0%, #000 8%, transparent 42%);
+}
+
+.topbar-blur-mid {
+  -webkit-backdrop-filter: blur(3px);
+  backdrop-filter: blur(3px);
+  -webkit-mask-image: linear-gradient(to bottom, #000 0%, #000 28%, transparent 68%);
+  mask-image: linear-gradient(to bottom, #000 0%, #000 28%, transparent 68%);
+}
+
+.topbar-blur-soft {
+  -webkit-backdrop-filter: blur(1px);
+  backdrop-filter: blur(1px);
+  -webkit-mask-image: linear-gradient(to bottom, #000 0%, #000 50%, transparent 100%);
+  mask-image: linear-gradient(to bottom, #000 0%, #000 50%, transparent 100%);
+}
+
+.navbar { position: relative; z-index: 1; height: var(--nav-h); }
 
 .navbar-inner {
   position: relative;
@@ -382,6 +409,7 @@ button {
 }
 
 @media (prefers-reduced-transparency: reduce) {
+  .topbar-blur { display: none; }
   .tabbar { background: #F7F7F7; }
 }
 
