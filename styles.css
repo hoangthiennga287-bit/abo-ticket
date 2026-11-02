@@ -88,7 +88,7 @@ button {
   position: fixed;
   inset: 0 0 auto;
   z-index: 30;
-  background: linear-gradient(to bottom, rgba(255, 255, 255, .30), rgba(255, 255, 255, 0));
+  background: transparent;
   box-shadow: none;
 }
 
@@ -176,7 +176,8 @@ button {
 
 .sheet {
   width: min(100%, 900px);
-  margin: var(--chrome-h) auto 0;
+  margin: 0 auto;
+  padding-top: var(--chrome-h);
   background: var(--sheet);
   box-shadow: none;
 }
