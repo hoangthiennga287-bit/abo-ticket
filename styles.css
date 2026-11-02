@@ -251,7 +251,7 @@ button {
 }
 
 .ticket-body {
-  padding: 19px var(--pad) 99px;
+  padding: 19px var(--pad) 107px;
 }
 
 .ticket-body-inner {
@@ -309,7 +309,7 @@ button {
 .tabbar {
   position: fixed;
   left: 50%;
-  bottom: 14px;
+  bottom: 22px;
   transform: translateX(-50%);
   z-index: 20;
   display: grid;
@@ -353,10 +353,10 @@ button {
 
 .tab span {
   position: relative;
-  font-size: 10px;
-  line-height: 12px;
-  font-weight: 500;
-  letter-spacing: -.01em;
+  font-size: 11.5px;
+  line-height: 13px;
+  font-weight: 600;
+  letter-spacing: -.005em;
 }
 
 .tab:active { opacity: .62; }
