@@ -18,6 +18,10 @@ syncScrollState();
 
 /* ---------- Minimal interactions (no invented screens) ---------- */
 
+document.querySelector('.back-button')?.addEventListener('click', () => {
+  if (history.length > 1) history.back();
+});
+
 document.querySelectorAll('.tab').forEach((tab) => {
   tab.addEventListener('click', () => {
     if (tab.classList.contains('is-active') || typeof tab.animate !== 'function') return;
