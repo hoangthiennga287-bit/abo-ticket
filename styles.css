@@ -88,9 +88,9 @@ button {
   position: fixed;
   inset: 0 0 auto;
   z-index: 30;
-  background: rgba(220, 220, 220, .60);
-  -webkit-backdrop-filter: blur(10px) saturate(1.2);
-  backdrop-filter: blur(10px) saturate(1.2);
+  background: linear-gradient(to bottom, rgba(231, 231, 231, .76), rgba(240, 240, 240, .66));
+  -webkit-backdrop-filter: blur(12px) saturate(1.15);
+  backdrop-filter: blur(12px) saturate(1.15);
   box-shadow: 0 3px 9px -6px rgba(0, 0, 0, .18);
   transition: background-color .25s ease;
 }
@@ -106,7 +106,7 @@ button {
   transition: background-color .25s ease;
 }
 
-.topbar.is-scrolled { background: rgba(220, 220, 220, .64); }
+.topbar.is-scrolled { background: linear-gradient(to bottom, rgba(231, 231, 231, .78), rgba(240, 240, 240, .68)); }
 .topbar.is-scrolled::after { background: rgba(0, 0, 0, .08); }
 
 .navbar { height: var(--nav-h); }
