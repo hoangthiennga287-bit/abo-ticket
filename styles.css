@@ -89,25 +89,23 @@ button {
   inset: 0 0 auto;
   z-index: 30;
   background: transparent;
-  -webkit-backdrop-filter: blur(2px) saturate(1.05);
-  backdrop-filter: blur(2px) saturate(1.05);
   box-shadow: none;
-  transition: background-color .25s ease;
 }
 
-.topbar::after {
+/* Blur fades out towards the bottom so there is no hard edge/line. */
+.topbar::before {
   content: "";
   position: absolute;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  height: 1px;
-  background: rgba(0, 0, 0, 0);
-  transition: background-color .25s ease;
+  inset: 0;
+  z-index: -1;
+  -webkit-backdrop-filter: blur(4px) saturate(1.05);
+  backdrop-filter: blur(4px) saturate(1.05);
+  -webkit-mask-image: linear-gradient(to bottom, #000 0%, #000 55%, transparent 100%);
+  mask-image: linear-gradient(to bottom, #000 0%, #000 55%, transparent 100%);
+  pointer-events: none;
 }
 
 .topbar.is-scrolled { background: transparent; }
-.topbar.is-scrolled::after { background: transparent; }
 
 .navbar { height: var(--nav-h); }
 
@@ -168,7 +166,7 @@ button {
   width: min(100%, 900px);
   margin: var(--chrome-h) auto 0;
   background: var(--sheet);
-  box-shadow: 0 0 26px rgba(0, 0, 0, .05);
+  box-shadow: none;
 }
 
 .ticket-head {
@@ -416,6 +414,7 @@ button {
 
 @media (prefers-reduced-transparency: reduce) {
   .topbar { background: #E9E9E9; }
+  .topbar::before { -webkit-backdrop-filter: none; backdrop-filter: none; }
   .tabbar { background: #F7F7F7; }
 }
 
