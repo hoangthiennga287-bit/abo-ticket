@@ -90,9 +90,25 @@ button {
   inset: 0 0 auto;
   z-index: 30;
   padding-top: var(--safe-top);
-  background: transparent;
+  background: #E8E8E8;
   box-shadow: none;
+  transition: background-color .22s ease;
 }
+
+/* Clear border only in the un-scrolled state, like the original app. */
+.topbar::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 1px;
+  background: #C3C3C3;
+  transition: background-color .22s ease;
+}
+
+.topbar.is-scrolled { background: transparent; }
+.topbar.is-scrolled::after { background: transparent; }
 
 .topbar-blur {
   position: absolute;
