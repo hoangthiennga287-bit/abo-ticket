@@ -88,9 +88,9 @@ button {
   position: fixed;
   inset: 0 0 auto;
   z-index: 30;
-  background: linear-gradient(to bottom, rgba(231, 231, 231, .70), rgba(240, 240, 240, .60));
-  -webkit-backdrop-filter: blur(12px) saturate(1.15);
-  backdrop-filter: blur(12px) saturate(1.15);
+  background: linear-gradient(to bottom, rgba(236, 236, 236, .42), rgba(242, 242, 242, .34));
+  -webkit-backdrop-filter: blur(8px) saturate(1.15);
+  backdrop-filter: blur(8px) saturate(1.15);
   box-shadow: 0 3px 9px -6px rgba(0, 0, 0, .18);
   transition: background-color .25s ease;
 }
@@ -106,8 +106,8 @@ button {
   transition: background-color .25s ease;
 }
 
-.topbar.is-scrolled { background: linear-gradient(to bottom, rgba(231, 231, 231, .72), rgba(240, 240, 240, .62)); }
-.topbar.is-scrolled::after { background: rgba(0, 0, 0, .08); }
+.topbar.is-scrolled { background: linear-gradient(to bottom, rgba(236, 236, 236, .44), rgba(242, 242, 242, .36)); }
+.topbar.is-scrolled::after { background: rgba(0, 0, 0, .035); }
 
 .navbar { height: var(--nav-h); }
 
