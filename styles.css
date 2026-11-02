@@ -88,10 +88,10 @@ button {
   position: fixed;
   inset: 0 0 auto;
   z-index: 30;
-  background: rgba(255, 255, 255, .12);
-  -webkit-backdrop-filter: blur(3px) saturate(1.1);
-  backdrop-filter: blur(3px) saturate(1.1);
-  box-shadow: 0 1px 6px -5px rgba(0, 0, 0, .10);
+  background: transparent;
+  -webkit-backdrop-filter: blur(2px) saturate(1.05);
+  backdrop-filter: blur(2px) saturate(1.05);
+  box-shadow: none;
   transition: background-color .25s ease;
 }
 
@@ -106,8 +106,8 @@ button {
   transition: background-color .25s ease;
 }
 
-.topbar.is-scrolled { background: rgba(255, 255, 255, .14); }
-.topbar.is-scrolled::after { background: rgba(0, 0, 0, .015); }
+.topbar.is-scrolled { background: transparent; }
+.topbar.is-scrolled::after { background: transparent; }
 
 .navbar { height: var(--nav-h); }
 
@@ -410,7 +410,7 @@ button {
 
 
 @supports not ((backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px))) {
-  .topbar { background: #E9E9E9; }
+  .topbar { background: rgba(255, 255, 255, .18); }
   .tabbar { background: #F6F6F6; }
 }
 
