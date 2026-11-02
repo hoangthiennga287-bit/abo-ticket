@@ -1,4 +1,4 @@
-const CACHE = 'abo-ticket-v1';
+const CACHE = 'abo-ticket-v2';
 
 const ASSETS = [
   './',

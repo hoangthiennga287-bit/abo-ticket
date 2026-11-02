@@ -19,7 +19,8 @@
 
   --pad: 20px;
   --nav-h: 60px;
-  --chrome-h: var(--nav-h);
+  --safe-top: env(safe-area-inset-top, 0px);
+  --chrome-h: calc(var(--nav-h) + var(--safe-top));
 
   --qr-max: 440px;
   --wm-max: 440px;
@@ -88,11 +89,8 @@ button {
   position: fixed;
   inset: 0 0 auto;
   z-index: 30;
-  background: linear-gradient(to bottom,
-    rgba(252, 252, 252, .98) 0%,
-    rgba(230, 230, 230, .62) 14%,
-    rgba(235, 235, 235, .52) 70%,
-    rgba(235, 235, 235, 0) 100%);
+  padding-top: var(--safe-top);
+  background: transparent;
   box-shadow: none;
 }
 
