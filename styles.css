@@ -88,24 +88,9 @@ button {
   position: fixed;
   inset: 0 0 auto;
   z-index: 30;
-  background: transparent;
+  background: linear-gradient(to bottom, rgba(255, 255, 255, .35), rgba(255, 255, 255, 0));
   box-shadow: none;
 }
-
-/* Blur fades out towards the bottom so there is no hard edge/line. */
-.topbar::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  z-index: -1;
-  -webkit-backdrop-filter: blur(4px) saturate(1.05);
-  backdrop-filter: blur(4px) saturate(1.05);
-  -webkit-mask-image: linear-gradient(to bottom, #000 0%, #000 55%, transparent 100%);
-  mask-image: linear-gradient(to bottom, #000 0%, #000 55%, transparent 100%);
-  pointer-events: none;
-}
-
-.topbar.is-scrolled { background: transparent; }
 
 .navbar { height: var(--nav-h); }
 
@@ -393,13 +378,10 @@ button {
 
 
 @supports not ((backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px))) {
-  .topbar { background: rgba(255, 255, 255, .18); }
   .tabbar { background: #F6F6F6; }
 }
 
 @media (prefers-reduced-transparency: reduce) {
-  .topbar { background: #E9E9E9; }
-  .topbar::before { -webkit-backdrop-filter: none; backdrop-filter: none; }
   .tabbar { background: #F7F7F7; }
 }
 
