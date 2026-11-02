@@ -286,22 +286,7 @@ button {
 
 .more-actions:active { background: rgba(0, 0, 0, .045); }
 
-/* ---------- Bottom scrim + floating tab bar ---------- */
-
-.tabbar-scrim {
-  position: fixed;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  z-index: 15;
-  height: calc(var(--tab-h) + 110px);
-  pointer-events: none;
-  background: linear-gradient(to bottom,
-    rgba(0, 0, 0, 0) 0%,
-    rgba(0, 0, 0, .055) 6%,
-    rgba(0, 0, 0, .06) 62%,
-    rgba(0, 0, 0, .11) 100%);
-}
+/* ---------- Floating tab bar ---------- */
 
 .tabbar {
   position: fixed;
@@ -317,7 +302,7 @@ button {
   background: rgba(247, 247, 247, .90);
   -webkit-backdrop-filter: blur(18px) saturate(1.2);
   backdrop-filter: blur(18px) saturate(1.2);
-  box-shadow: 0 6px 22px rgba(0, 0, 0, .10), inset 0 1px 0 rgba(255, 255, 255, .6);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, .05), inset 0 1px 0 rgba(255, 255, 255, .6);
   overflow: hidden;
 }
 
@@ -434,7 +419,7 @@ button {
 @media print {
   body { background: #fff; }
 
-  .topbar, .tabbar, .tabbar-scrim, .more-actions, .skip-link { display: none !important; }
+  .topbar, .tabbar, .more-actions, .skip-link { display: none !important; }
 
   .sheet {
     width: 100%;
